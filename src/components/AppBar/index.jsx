@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box'
-import ModeSelect from '~/components/ModeSelect'
 import AppIcons from '@mui/icons-material/Apps'
 import { ReactComponent as TrelloIcon } from '~/assets/trello.svg'
 import SvgIcon from '@mui/material/SvgIcon'
@@ -47,7 +46,6 @@ function AppBar() {
           size='small'
           sx={{ minWidth : 120 }}
         />
-        <ModeSelect/>
         <Tooltip title="Notification">
           <Badge color="secondary" variant="dot" sx={{ cursor : 'pointer' }} >
             <NotificationsNoneOutlinedIcon sx={{ color : 'primary.main' }} />

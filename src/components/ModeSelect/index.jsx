@@ -10,7 +10,13 @@ import {
   useColorScheme
 } from '@mui/material/styles'
 function ModeSelect() {
+  
   const { mode, setMode } = useColorScheme()
+  const modeSelect = [
+    'dark',
+    'light',
+    'system'
+  ]
   const handleChange = (event) => {
     const selectedMode = event.target.value
     setMode(selectedMode)
@@ -25,7 +31,7 @@ function ModeSelect() {
         value={mode}
         label="Mode"
         onChange={handleChange}
-      >
+      > 
         <MenuItem value="light">
           <Box sx={{ display : 'flex', alignItems : 'center', gap: 1 }}>
             <LightModeIcon/> Light
