@@ -10,13 +10,20 @@ import {
   useColorScheme
 } from '@mui/material/styles'
 function ModeSelect() {
+  
   const { mode, setMode } = useColorScheme()
+  const modeSelect = [
+    'dark',
+    'light',
+    'system'
+  ]
   const handleChange = (event) => {
     const selectedMode = event.target.value
     setMode(selectedMode)
   }
+
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+    <FormControl sx={{ minWidth : 120 }} size="small" >
       <InputLabel id="label-select-dark-light-mode">Mode</InputLabel>
       <Select
         labelId="label-select-dark-light-mode"
@@ -24,11 +31,11 @@ function ModeSelect() {
         value={mode}
         label="Mode"
         onChange={handleChange}
-      >
+      > 
         <MenuItem value="light">
-          <div style={{ display : 'flex', alignItems : 'center', gap : '8px' }}>
+          <Box sx={{ display : 'flex', alignItems : 'center', gap: 1 }}>
             <LightModeIcon/> Light
-          </div>
+          </Box>
         </MenuItem>
         <MenuItem value="dark">
           <Box sx={{ display : 'flex', alignItems : 'center', gap: 1 }}>
