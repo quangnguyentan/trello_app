@@ -11,7 +11,7 @@ import PersonAdd from '@mui/icons-material/PersonAdd'
 import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
-import ModeSelect from '~/components/ModeSelect'
+import ModeSelect from '~/components/ModeSelect/ModeSelect'
 function Profile() {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [openTheme, setOpenTheme] = useState(false)
@@ -54,7 +54,7 @@ function Profile() {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar sx={{ width : 28, height : 28, mr : 2 }} /> Profile
+          <Avatar sx={{ width : 34, height : 34, mr : 2 }} /> Profile
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Avatar sx={{ width : 28, height : 28, mr : 2 }} /> My account
@@ -78,8 +78,6 @@ function Profile() {
             height : '100%',
             borderLeft: '3px solid #0c66e4',
             borderRadius : 5
-          }, '&:focus': {
-            backgroundColor: '#334252'
           }
           }}
           aria-label="more"

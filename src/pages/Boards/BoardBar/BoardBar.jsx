@@ -7,9 +7,13 @@ import BoltIcon from '@mui/icons-material/Bolt'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import Avatar from '@mui/material/Avatar'
 import AvatarGroup from '@mui/material/AvatarGroup'
+import Tooltip from '@mui/material/Tooltip'
+import Button from '@mui/material/Button'
+import PersonAddIcon from '@mui/icons-material/PersonAdd'
+
 const MENU_STYLES = {
-  px : 5, color : 'primary.main', backgroundColor : 'white', border : 'none', borderRadius : '4px', '& .MuiSvgIcon-root' : {
-    color : 'primary.main'
+  px : '5px', color : 'white', backgroundColor : 'transparent', border : 'none', borderRadius : '4px', '.MuiSvgIcon-root' : {
+    color : 'white'
   }, '&:hover' : {
     backgroundColor : 'primary.50' 
   }
@@ -25,7 +29,10 @@ function BoardBar() {
       gap : 2,
       paddingX : 2,
       overflowX : 'auto',
-      borderTop : '1px solid #00bfa5'
+      '&::-webkit-scrollbar-track' : {
+        m : 2
+      },
+      bgcolor : (theme) => (theme.palette.mode === 'dark' ? '#34495e' : '#1976d2')
     }}> 
       <Box sx={{ display: 'flex', gap : 2, alignItems : 'center' }} > 
         <Chip 
@@ -45,11 +52,28 @@ function BoardBar() {
           icon={<FilterListIcon />} clickable label="Filters" />
       </Box>
       <Box sx={{ display: 'flex', gap : 2, alignItems : 'center' }} > 
-        <AvatarGroup total={24}>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-          <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-          <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
-          <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
+        <Button variant='outlined' startIcon={<PersonAddIcon/>} sx={{ color : 'white', borderColor : 'white', '&:hover' : {
+          borderColor : 'white'
+        } }} >
+          Invite
+        </Button>
+        <AvatarGroup total={24}
+          max={7}
+          sx={{ gap : '10px', '& .MuiAvatar-root' : {
+            width : 34,
+            height : 34,
+            fontSize : 16,
+            border : 'none',
+            color : 'white',
+            cursor : 'pointer',
+            '&:first-of-type' : {
+              bgcolor : '#a4b0be'
+            }
+          } }}
+        >
+          <Tooltip title="nguyentanquang">
+            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          </Tooltip>
         </AvatarGroup>
       </Box>
     </Box>

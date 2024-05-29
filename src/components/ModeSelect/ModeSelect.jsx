@@ -12,25 +12,20 @@ import {
 function ModeSelect() {
   
   const { mode, setMode } = useColorScheme()
-  const modeSelect = [
-    'dark',
-    'light',
-    'system'
-  ]
   const handleChange = (event) => {
     const selectedMode = event.target.value
     setMode(selectedMode)
   }
-
   return (
     <FormControl sx={{ minWidth : 120 }} size="small" >
-      <InputLabel id="label-select-dark-light-mode">Mode</InputLabel>
+      <InputLabel sx={{ color : 'blue' }} id="label-select-dark-light-mode">Mode</InputLabel>
       <Select
         labelId="label-select-dark-light-mode"
         id="select-dark-light-mode"
         value={mode}
         label="Mode"
         onChange={handleChange}
+        sx={{ border : 'none' }}
       > 
         <MenuItem value="light">
           <Box sx={{ display : 'flex', alignItems : 'center', gap: 1 }}>
