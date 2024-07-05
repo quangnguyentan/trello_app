@@ -10,7 +10,7 @@ import AvatarGroup from '@mui/material/AvatarGroup'
 import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
-
+import { capitalizeFirstLetter } from '~/utils/formatter'
 const MENU_STYLES = {
   px : '5px', color : 'white', backgroundColor : 'transparent', border : 'none', borderRadius : '4px', '.MuiSvgIcon-root' : {
     color : 'white'
@@ -18,7 +18,7 @@ const MENU_STYLES = {
     backgroundColor : 'primary.50' 
   }
 }
-function BoardBar() {
+function BoardBar({ board }) {
   return (
     <Box sx={{ 
       width : '100%',
@@ -37,10 +37,10 @@ function BoardBar() {
       <Box sx={{ display: 'flex', gap : 2, alignItems : 'center' }} > 
         <Chip 
           sx={ MENU_STYLES }
-          icon={<DashboardIcon />} clickable label="Dash Board" />
+          icon={<DashboardIcon />} clickable label={board?.title} />
         <Chip 
           sx={MENU_STYLES}
-          icon={<VpnLockIcon />} clickable label="Public/Private Workspace" />
+          icon={<VpnLockIcon />} clickable label={capitalizeFirstLetter(board?.type)}/>
         <Chip 
           sx={MENU_STYLES}
           icon={<AddToDriveIcon />} clickable label="Add To Google Drive" />
@@ -71,7 +71,7 @@ function BoardBar() {
             }
           } }}
         >
-          <Tooltip title="nguyentanquang">
+          <Tooltip title={board?.title}>
             <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
           </Tooltip>
         </AvatarGroup>

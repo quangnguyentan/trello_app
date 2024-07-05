@@ -3,7 +3,7 @@ import Box from '@mui/material/Box'
 import Column from './Column/Column'
 import Button from '@mui/material/Button'
 import QueueIcon from '@mui/icons-material/Queue'
-function ListColumns() {
+function ListColumns({ columns }) {
   return (
     <Box sx={{ bgcolor: 'inherit', width : '100%', 
       height : '100%', display : 'flex',
@@ -13,9 +13,7 @@ function ListColumns() {
         m : 2
       }
     }}>
-      <Column/>
-      <Column/>
-
+      {columns?.map(column => <Column key={column?._id} column={column} />)}
       <Box sx={{ 
         minWidth : '200px',
         maxWidth : '200px',
